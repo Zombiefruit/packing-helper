@@ -25,7 +25,7 @@ export const App = () => {
           window.open(window.location.href + uid(), "_blank");
         }}
       >
-        Create Room
+        Create a new packing list
       </Button>
     </Center>
   );

@@ -125,7 +125,10 @@ const BoxComponent: React.FC<{
         >
           <BoxContainer>
             <Group position="apart" mt="md" mb="xs">
-              <Text weight={500}>{box.id}</Text>
+              <Flex gap={4}>
+                <Text>Box id: </Text>
+                <Text weight={500}>{box.id}</Text>
+              </Flex>
               <ActionIcon variant="light" color="red" onClick={open}>
                 <Trash size="1rem" />
               </ActionIcon>
