@@ -5,7 +5,7 @@ import { MantineProvider } from "@mantine/core";
 import { create } from "zustand";
 import { createClient } from "@liveblocks/client";
 import { WithLiveblocks, liveblocks } from "@liveblocks/zustand";
-import { App } from "./App";
+import { App } from "./app";
 
 const client = createClient({
   publicApiKey:
