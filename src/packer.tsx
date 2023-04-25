@@ -53,7 +53,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
       {isStorageLoading ? (
         <Loader />
       ) : (
-        <Flex direction="column">
+        <Flex direction="column" style={{ width: "100%" }}>
           <Flex justify="space-between" gap={10}>
             <Button onClick={onAddBox} mb={50} leftIcon={<Plus />}>
               Add Box
