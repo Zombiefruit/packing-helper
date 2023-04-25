@@ -153,6 +153,7 @@ const BoxComponent: React.FC<{
             <Input
               icon={<Box />}
               placeholder="Socks, dishes, etc."
+              size="md"
               value={newItem}
               onChange={(e) => {
                 setNewItem(e.currentTarget.value);
