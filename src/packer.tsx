@@ -55,12 +55,13 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
       ) : (
         <Flex direction="column" style={{ width: "100%" }}>
           <Flex justify="space-between" gap={10}>
-            <Button onClick={onAddBox} mb={50} leftIcon={<Plus />}>
+            <Button onClick={onAddBox} mb={50} leftIcon={<Plus />} size="md">
               Add a Box
             </Button>
             <Container p={0} m={0}>
               <Input
                 placeholder="Search"
+                size="md"
                 icon={<ListSearch />}
                 value={search}
                 onChange={(e) => setSearch(e.currentTarget.value)}
