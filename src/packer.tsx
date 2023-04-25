@@ -137,6 +137,9 @@ const BoxComponent: React.FC<{
             </Group>
             <Group position="apart" mt="md" mb="xs">
               <Flex direction="column" style={{ width: "100%" }}>
+                {!box.contents.length && (
+                  <Text weight="lighter">Box is empty</Text>
+                )}
                 <List>
                   {box.contents.map((c) => (
                     <ListItem
