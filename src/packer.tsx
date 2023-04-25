@@ -129,7 +129,7 @@ const BoxComponent: React.FC<{
             <Group position="apart" mt="md" mb="xs">
               <Flex gap={4}>
                 <Text>Box id: </Text>
-                <Text weight={500}>{box.id}</Text>
+                <Text weight={500}>{box.id.toLocaleLowerCase()}</Text>
               </Flex>
               <ActionIcon variant="light" color="red" onClick={open}>
                 <Trash size="1rem" />
