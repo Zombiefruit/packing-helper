@@ -56,7 +56,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
         <Flex direction="column" style={{ width: "100%" }}>
           <Flex justify="space-between" gap={10}>
             <Button onClick={onAddBox} mb={50} leftIcon={<Plus />}>
-              Add Box
+              Add a Box
             </Button>
             <Container p={0} m={0}>
               <Input
@@ -152,7 +152,7 @@ const BoxComponent: React.FC<{
           <Flex gap={5} align="center" mt={25}>
             <Input
               icon={<Box />}
-              placeholder="Add something"
+              placeholder="Socks, dishes, etc."
               value={newItem}
               onChange={(e) => {
                 setNewItem(e.currentTarget.value);
