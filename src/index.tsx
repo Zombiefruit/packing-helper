@@ -28,11 +28,14 @@ export const App = () => {
             </Title>
             <Text>
               A little app that lets you manage boxes as you move apartments.
-              Share the unique URL, edit boxes and their contents in the same
-              place, and simply mark boxes with their 3-letter ID.
+              Share the unique URL with others, edit boxes and their contents
+              together as you pack, and mark boxes in real life with their
+              3-letter ID.
             </Text>
             <Blockquote cite="– Barack Obama">
-              Moving has never been so easy.
+              Moving has never been so over-engineered. Think of all the
+              actually useful things that could have been built instead of this
+              app.
             </Blockquote>
           </Flex>
         </Center>
