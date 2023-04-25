@@ -18,7 +18,7 @@ import {
 } from "@mantine/core";
 import ShortUniqueId from "short-unique-id";
 import { Box, ListSearch, Plus, Trash } from "tabler-icons-react";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
 const uid = new ShortUniqueId({ length: 3 });
 
@@ -28,6 +28,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
     addBox,
     liveblocks: { enterRoom, leaveRoom, isStorageLoading },
   } = useBoxesStore();
+  const matches = useMediaQuery("(min-width: 900px)");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -48,16 +49,16 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
   console.log("isStorageLoading:", isStorageLoading);
 
   return (
-    <Center p={100}>
+    <Center style={{ width: "100%" }} pt={100} px="10%" mb={100}>
       {isStorageLoading ? (
         <Loader />
       ) : (
-        <Container size="xl">
-          <Flex justify="space-between">
+        <Flex direction="column">
+          <Flex justify="space-between" gap={10}>
             <Button onClick={onAddBox} mb={50} leftIcon={<Plus />}>
               Add Box
             </Button>
-            <Container m={0}>
+            <Container p={0} m={0}>
               <Input
                 placeholder="Search"
                 icon={<ListSearch />}
@@ -66,7 +67,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
               />
             </Container>
           </Flex>
-          <SimpleGrid cols={3}>
+          <SimpleGrid cols={matches ? 3 : 1}>
             {boxes
               .filter(
                 (box) =>
@@ -81,7 +82,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
                 return <BoxComponent box={box} key={box.id} />;
               })}
           </SimpleGrid>
-        </Container>
+        </Flex>
       )}
     </Center>
   );
