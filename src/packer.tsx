@@ -170,12 +170,13 @@ const BoxComponent: React.FC<{
         </Flex>
       </Card>
 
-      <Modal opened={opened} onClose={close} title="Delete" centered>
-        <Container>
-          Are you sure you want to delete this box?
+      <Modal opened={opened} onClose={close} centered>
+        <Flex direction="column" gap={50} align="center">
+          <Text>Are you sure you want to delete this box?</Text>
           <Button
             color="red"
             variant="filled"
+            style={{ width: 100 }}
             onClick={() => {
               removeBox(box);
               close();
@@ -183,7 +184,7 @@ const BoxComponent: React.FC<{
           >
             Delete
           </Button>
-        </Container>
+        </Flex>
       </Modal>
     </>
   );
