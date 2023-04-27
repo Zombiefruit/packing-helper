@@ -19,6 +19,7 @@ import {
 import ShortUniqueId from "short-unique-id";
 import { Box, ListSearch, Plus, Trash } from "tabler-icons-react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 
 const uid = new ShortUniqueId({ length: 3 });
 
@@ -45,6 +46,10 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
     };
 
     addBox(box);
+    notifications.show({
+      title: "Box Added",
+      message: `Added box with id ${box.id}`,
+    });
   }, [addBox]);
   console.log("isStorageLoading:", isStorageLoading);
 

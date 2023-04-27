@@ -6,6 +6,7 @@ import { create } from "zustand";
 import { createClient } from "@liveblocks/client";
 import { WithLiveblocks, liveblocks } from "@liveblocks/zustand";
 import { App } from ".";
+import { Notifications } from "@mantine/notifications";
 
 const client = createClient({
   publicApiKey:
@@ -52,6 +53,7 @@ export const useBoxesStore = create<WithLiveblocks<BoxesStore>>(
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Notifications />
       <App />
     </MantineProvider>
   </React.StrictMode>
