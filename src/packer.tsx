@@ -49,6 +49,12 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
     notifications.show({
       title: "Box Added",
       message: `Added box with id ${box.id}`,
+      onClick: () => {
+        window.scrollTo({
+          behavior: "smooth",
+          top: document.body.scrollHeight,
+        });
+      },
     });
   }, [addBox]);
   console.log("isStorageLoading:", isStorageLoading);
