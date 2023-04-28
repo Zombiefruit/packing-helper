@@ -15,10 +15,13 @@ import {
   Modal,
   Loader,
   Center,
+  Affix,
+  Transition,
+  rem,
 } from "@mantine/core";
 import ShortUniqueId from "short-unique-id";
-import { Box, ListSearch, Plus, Trash } from "tabler-icons-react";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { ArrowUp, Box, ListSearch, Plus, Trash } from "tabler-icons-react";
+import { useDisclosure, useMediaQuery, useWindowScroll } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 
 const uid = new ShortUniqueId({ length: 3 });
@@ -30,6 +33,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
     liveblocks: { enterRoom, leaveRoom, isStorageLoading },
   } = useBoxesStore();
   const matches = useMediaQuery("(min-width: 900px)");
+  const [scroll, scrollTo] = useWindowScroll();
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -50,13 +54,10 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
       title: "Box Added",
       message: `Added box with id ${box.id}`,
       onClick: () => {
-        window.scrollTo({
-          behavior: "smooth",
-          top: document.body.scrollHeight,
-        });
+        scrollTo({ y: document.body.scrollHeight });
       },
     });
-  }, [addBox]);
+  }, [addBox, scrollTo]);
   console.log("isStorageLoading:", isStorageLoading);
 
   return (
@@ -79,6 +80,20 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
               />
             </Container>
           </Flex>
+          <Affix position={{ bottom: rem(20), left: rem(20) }}>
+            <Transition transition="slide-up" mounted={scroll.y > 0}>
+              {(transitionStyles) => (
+                <ActionIcon
+                  style={transitionStyles}
+                  onClick={() => scrollTo({ y: 0 })}
+                  color="blue"
+                  variant="filled"
+                >
+                  <ArrowUp size="1rem" />
+                </ActionIcon>
+              )}
+            </Transition>
+          </Affix>
           <SimpleGrid cols={matches ? 3 : 1}>
             {boxes
               .filter(
