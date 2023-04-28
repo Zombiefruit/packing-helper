@@ -89,7 +89,7 @@ export const Packer: React.FC<{ roomId: string }> = ({ roomId }) => {
                   color="blue"
                   variant="filled"
                 >
-                  <ArrowUp size="1rem" />
+                  <ArrowUp size="1.125rem" />
                 </ActionIcon>
               )}
             </Transition>
